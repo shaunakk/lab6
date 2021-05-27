@@ -31,6 +31,16 @@ public:
     popBelowPovertyCount = 0;
     totalPopulation2014 = 0;
   }
+  int getFirstNationCount() const { return racialData.getFirstNationCount(); }
+  int getAsianCount() const { return racialData.getAsianCount(); }
+  int getBlackCount() const { return racialData.getBlackCount(); }
+  int getLatinxCount() const { return racialData.getLatinxCount(); }
+  int getHIPacificIsleCount() const { return racialData.getHIPacificIsleCount(); }
+  int getMultiRaceCount() const { return racialData.getMultiRaceCount(); }
+  int getWhiteCount() const { return racialData.getWhiteCount(); }
+  int getWhiteNHCount() const { return racialData.getWhiteNHCount(); }
+  int getOtherCount() const { return racialData.getOtherCount(); }
+  int getCommunityCount() const { return racialData.getCommunityCount(); }
   void accept(class Visitor &v);
   raceDemogData getCommunityRaceMix() const { return racialData; }
   //Getters

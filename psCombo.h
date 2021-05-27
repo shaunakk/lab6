@@ -77,6 +77,16 @@ public:
         else
             racialData.addCommunityCount(1); //blank entry in csv data
     }
+    int getFirstNationCount() const { return racialData.getFirstNationCount(); }
+    int getAsianCount() const { return racialData.getAsianCount(); }
+    int getBlackCount() const { return racialData.getBlackCount(); }
+    int getLatinxCount() const { return racialData.getLatinxCount(); }
+    int getHIPacificIsleCount() const { return racialData.getHIPacificIsleCount(); }
+    int getMultiRaceCount() const { return racialData.getMultiRaceCount(); }
+    int getWhiteCount() const { return racialData.getWhiteCount(); }
+    int getWhiteNHCount() const { return racialData.getWhiteNHCount(); }
+    int getOtherCount() const { return racialData.getOtherCount(); }
+    int getCommunityCount() const { return racialData.getCommunityCount(); }
     virtual void toString(std::ostream &out) const
     {
         out << "State Info: ";

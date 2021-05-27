@@ -234,8 +234,8 @@ void statTool::computeStatsDemogRegionData(visitorCombine *theRegions,
 
     cout << "std dev mean X: " << stats::computeStdDevPop(dataXpercent, mX) << endl;
     cout << "std dev mean Y: " << stats::computeStdDevPop(dataYpercent, mY) << endl;
-    cout << "Pearson Coeff: " << stats::computeCorCoeff(dataXpercent, dataYpercent) << endl;
-    //cout << "Population Coeff: " << stats::computeCorCoeffPop(dataXpercent, dataYpercent, mX, mY) << endl;
+    //cout << "Pearson Coeff: "<<stats::computeCorCoeff(dataXpercent, dataYpercent)<< endl;
+    cout << "Population Coeff: " << stats::computeCorCoeffPop(dataXpercent, dataYpercent, mX, mY) << endl;
 
     writeToCSV(dataXcount, dataYcount, "DemogCounts.csv");
     writeToCSV(dataXpercent, dataYpercent, "DemogPercents.csv");
