@@ -31,7 +31,7 @@ public:
   virtual void toString(std::ostream &out) const
   {
     out << fixed << setprecision(2);
-    out << "Region info: comboData, ";
+    out << "Combo Info: ";
     for (auto s : this->states)
     {
       out << s.first << ", ";
