@@ -8,6 +8,8 @@
 #include "visitorCombine.h"
 #include <memory>
 
+using namespace std;
+
 class visitorCreateKey : public Visitor
 {
 public:
@@ -19,15 +21,38 @@ public:
 
   void visit(shared_ptr<demogData> obj)
   {
-    //FILL IN
+    size_t pos = obj->getName().find(" County");
+    string keyname = obj->getName();
+    if (pos != string::npos)
+      keyname.erase(pos, 7);
+    keyname += obj->getState();
+    demogToKeyMap[keyname] = demogFunc(obj);
   }
 
   void visit(shared_ptr<psData> obj)
   {
-    //FILL IN
+    size_t pos = obj->getName().find(" County");
+    string keyname = obj->getName();
+    if (pos != string::npos)
+      keyname.erase(pos, 7);
+    keyname += obj->getState();
+    psToKeyMap[keyname] = psFunc(obj);
+  }
+  void visit(shared_ptr<psCombo> obj)
+  {
   }
 
   //add getters as needed
+  map<string, string> getDemogRegionToKey()
+      const
+  {
+    return demogToKeyMap;
+  }
+  map<string, string> getPsRegionToKey()
+      const
+  {
+    return psToKeyMap;
+  }
 
 private:
   //the function pointers to the key functions
@@ -35,6 +60,8 @@ private:
   string (*psFunc)(shared_ptr<psData>);
 
   //ADD data to map between location and key
+  map<string, string> demogToKeyMap;
+  map<string, string> psToKeyMap;
 };
 
 #endif

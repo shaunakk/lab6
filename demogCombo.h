@@ -34,25 +34,25 @@ public:
     out << "Region info: comboData, ";
     for (auto s : this->states)
     {
-      out << s.first;
+      out << s.first << ", ";
     }
-    // out << "total states: " << this->states.size();
-    // out << "\nNumber of Counties: " << this->getNumCounties();
-    // out << " County Demographics Info: comboData, many";
-    // //consider re-writing with getters....
-    // out << "\nPopulation info: \n(over 65): " << this->getpopOver65() << "\%";
-    // out << " and total: " << this->getpopOver65Count();
-    // out << "\n(under 18): " << this->getpopUnder18() << "\%";
-    // out << " and total: " << this->getpopUnder18Count();
-    // out << "\n(under 5): " << this->getpopUnder5() << "\%";
-    // out << " and total: " << this->getpopUnder5Count();
+    out << "total states: " << this->states.size();
+    out << "\nNumber of Counties: " << this->getNumCounties();
+    out << " County Demographics Info: comboData, many";
+    //consider re-writing with getters....
+    out << "\nPopulation info: \n(over 65): " << this->getpopOver65() << "\%";
+    out << " and total: " << this->getpopOver65Count();
+    out << "\n(under 18): " << this->getpopUnder18() << "\%";
+    out << " and total: " << this->getpopUnder18Count();
+    out << "\n(under 5): " << this->getpopUnder5() << "\%";
+    out << " and total: " << this->getpopUnder5Count();
     out << "\nEducation info:";
     out << "\n(Bachelor or more): " << this->getBAup() << "\%";
     out << " and total: " << this->getBAupCount();
     out << "\n(high school or more): " << this->getHSup() << "\%";
     out << " and total: " << this->getHSupCount();
-    // out << "\npersons below poverty: " << this->getPopBelowPoverty() << "\%";
-    // out << " and total: " << this->getPovertyCount();
+    out << "\npersons below poverty: " << this->getPopBelowPoverty() << "\%";
+    out << " and total: " << this->getPovertyCount();
     out << "\nTotal population: " << this->getPop();
     out << "\nRacial Demographics Info: ";
     out << "\n\% American Indian and Alaska Native percent: ";

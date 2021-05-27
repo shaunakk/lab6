@@ -3,7 +3,7 @@ CXX=g++
 
 CXXFLAGS= -g -std=c++14 
 
-BINARIES=dataProj testStats1 testStatsData1 testStatsData2
+BINARIES=dataProj testStats1 testStatsData1 testStatsData2 testStatsData5
 
 all: ${BINARIES}
 
@@ -22,6 +22,9 @@ testStatsData1: testStatsData1.o stats.o statTool.o demogCombo.o demogData.o rac
 	${CXX} $^ -o $@
 
 testStatsData2: testStatsData2.o stats.o statTool.o demogCombo.o demogData.o raceDemogData.o psData.o psCombo.o  parse.o tddFuncs.o
+	# ${CXX} $^ -o $@
+
+testStatsData5: testStatsData5.o stats.o statTool.o demogCombo.o demogData.o raceDemogData.o psData.o psCombo.o  parse.o tddFuncs.o
 	${CXX} $^ -o $@
 
 clean:

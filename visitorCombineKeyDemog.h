@@ -11,30 +11,52 @@
 class visitorCombineKeyDemog : public visitorCombine
 {
 public:
-  visitorCombineKeyDemog(string (*df)(shared_ptr<demogData>), std::map<string, string> &mapDemogToKey)
+  visitorCombineKeyDemog(string (*df)(shared_ptr<demogData>), const std::map<string, string> &mapDemogToKey)
   {
     demogFunc = df;
     //probably want to assert the map is legit and store it
     assert(mapDemogToKey.size() > 0);
+    demogToKeyMap = mapDemogToKey;
   }
 
   //just store based on function
   void visit(shared_ptr<demogData> obj)
   {
-    //FILL IN
-  }
+    size_t pos = obj->getName().find(" County");
+    string keyname = obj->getName();
+    if (pos != string::npos)
+      keyname.erase(pos, 7);
+    keyname += obj->getState();
+    string key = demogToKeyMap[keyname];
+    if (allComboDemogData.count(key) == 0)
+    {
+      allComboDemogData[key] = make_shared<demogCombo>();
+    }
 
+    allComboDemogData[key]->addCountyData(*obj);
+  }
   //store based on demog key
   void visit(shared_ptr<psData> obj)
   {
     //FILL IN
   }
+  void visit(shared_ptr<psCombo> obj)
+  {
+    //FILL IN
+  }
+  void printAllCombo()
+  {
+    for (auto d : allComboDemogData)
+    {
+      cout << "name: " << d.first << endl;
+      d.second->toString(cout);
+      cout << endl;
+    }
+  }
 
 private:
-  //the function pointers to the key functions
   string (*demogFunc)(shared_ptr<demogData>);
-
-  //want a way to keep region to key for mapping between the two dataTypes
+  map<string, string> demogToKeyMap;
 };
 
 #endif

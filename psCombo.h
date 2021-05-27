@@ -83,7 +83,7 @@ public:
 
         for (auto s : this->states)
         {
-            out << s.first << endl;
+            out << s.first << ", ";
         }
         out << "total states: " << this->states.size();
         out << "\nNumber of incidents: " << this->getNumberOfCases();
